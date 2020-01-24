@@ -1,6 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# To Release
+
+> npm run build
+> firebase login
+> firebase deploy --only hosting:silentauction-dashboard-1
+
+
 ## Available Scripts
+
 
 In the project directory, you can run:
 
