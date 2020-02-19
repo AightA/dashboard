@@ -1,29 +1,17 @@
 export function processChange(change, s) {
-    let changeData = setChangeUser(change.doc.data(),s);
     switch (change.type) {
         case 'added':
-            addLot(changeData, s);
+            addLot(change.doc, s);
             return;
         case 'modified':
-            modifyLot(changeData, s);
+            modifyLot(change.doc, s);
             return;
         case 'removed':
-            removeLot(changeData, s);
+            removeLot(change.doc, s);
             return;
         default:
             return;
     }
-}
-function setChangeUser (change, s){
-    const currentUser = s.state.users.filter(user => user.bidderCode === change.currentBidder);
-    if(currentUser!=null && currentUser.length > 0){
-        let username = currentUser[0].forename;
-        if(currentUser[0].surname !== null && currentUser[0].surname !== undefined){
-            username = username + ' '+ currentUser[0].surname;
-        }
-        change.currentBidderName = username; 
-    }
-    return change;
 }
 
 function addLot(change, s) {

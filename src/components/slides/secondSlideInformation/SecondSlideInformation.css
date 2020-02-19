@@ -1,27 +1,14 @@
-.textStyle {
-  width: 90%;
-  height: 70%;
-  text-align: center;
-  font-size: 28px;
-  color: black;
-  overflow-wrap: break-word;
-  margin-right: 5%;
-  margin-left: 5%;
+div.polaroid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
 }
 
-.imgStyle {
-  width: 800px;
-  height: 650px;
-  margin-right: 5%;
-  margin-left: 5%;
-  float: left;
-  border-radius: 20px;
-  margin-bottom: 10%;
-}
-
-.caption {
+div.container {
   text-align: center;
-  margin-left: 35%;
-  width: 150%;
-  height: 20%;
+  padding: 10px 20px;
 }
