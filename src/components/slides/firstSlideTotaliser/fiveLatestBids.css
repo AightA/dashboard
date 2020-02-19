@@ -1,0 +1,45 @@
+.fiveLatestBids-component {
+  width: 50%;
+  height: 100%;
+}
+
+.titleFiveLatestBids {
+  font-size: 2.5rem;
+  margin-top: 17%;
+}
+.bids-wrapper {
+  /* border: 1px solid black; */
+  height: 65%;
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.bid {
+  font-size: 1.5rem;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 10%;
+  padding: 1%;
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin: 1% 10%;
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+  align-items: center;
+}
+
+.bidImage {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid gray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 4px;
+}
+.bidName {
+  font-size: 1.3rem;
+  padding-left: 0.5rem;
+}
