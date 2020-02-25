@@ -13,7 +13,7 @@ class FirstSlideTotaliser extends React.Component {
           style={{ display: "flex", flexDirection: "row" }}
         >
           <FiveLatestBid lots={this.props.lots} />
-          <Totaliser lots={this.props.lots} />
+          <Totaliser lots={this.props.lots} onNewTotal={this.props.onNewTotal}/>
         </div>
       </div>
     );

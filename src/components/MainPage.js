@@ -3,6 +3,7 @@ import { getLots } from "../dao/LotDao";
 import { processChange } from "../lotProcessor/ChangeProcessor";
 import Header from "./Header";
 import Footer from "./Footer";
+import Confetti from "react-confetti";
 import FirstSlideTotaliser from ".././components/slides/firstSlideTotaliser/FirstSlideTotaliser";
 import ThirdSlidePlaceholder from ".././components/slides/thirdSlidePlaceholder/ThirdSlidePlaceholder";
 import SecondSlide from ".././components/slides/secondSlideInformation/SecondSlide";
@@ -16,7 +17,9 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       lots: [],
-      currentPicture: 0
+      currentPicture: 0,
+      showingConfetti: false,
+      milestone: 0
     };
   }
 
@@ -38,6 +41,16 @@ class MainPage extends React.Component {
     }
   };
 
+  onNewTotal = (total) => {
+    if (total >= this.state.milestone) {
+      let newMilestone = Math.round((this.state.total + 500) / 1000) * 1000;
+      this.setState({ showingConfetti: true, milestone: newMilestone });
+      setTimeout(() => {
+        this.setState({ showingConfetti: false });
+      }, 14000);
+    }
+  };
+
   render() {
     const settings = {
       infinite: true,
@@ -50,9 +63,17 @@ class MainPage extends React.Component {
     };
     return (
       <div>
+        {this.state.showingConfetti && (
+          <Confetti
+            className="confettiBox"
+            numberOfPieces='600'
+            tweenDuration='5000'
+            initialVelocityY='50'
+          />
+        )}
         <Header />
         <Slider {...settings}>
-          <FirstSlideTotaliser lots={this.state.lots} />
+          <FirstSlideTotaliser lots={this.state.lots} onNewTotal={this.onNewTotal} />
           <SecondSlide current={this.state.currentPicture} />
           <ThirdSlidePlaceholder lots={this.state.lots} />
         </Slider>
